@@ -1,0 +1,44 @@
+name: Validate Skills
+
+on:
+  pull_request:
+    paths:
+      - 'skills/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check skill.md frontmatter
+        run: |
+          for skill_file in skills/*/skill.md; do
+            echo "Checking: $skill_file"
+
+            # Must have required frontmatter fields
+            if ! grep -q "^name:" "$skill_file"; then
+              echo "FAIL: missing 'name:' in $skill_file"
+              exit 1
+            fi
+            if ! grep -q "^description:" "$skill_file"; then
+              echo "FAIL: missing 'description:' in $skill_file"
+              exit 1
+            fi
+            if ! grep -q "^model:" "$skill_file"; then
+              echo "FAIL: missing 'model:' in $skill_file"
+              exit 1
+            fi
+
+            echo "OK: $skill_file"
+          done
+
+      - name: Check each skill has a README
+        run: |
+          for skill_dir in skills/*/; do
+            if [ ! -f "${skill_dir}README.md" ]; then
+              echo "FAIL: missing README.md in $skill_dir"
+              exit 1
+            fi
+            echo "OK: ${skill_dir}README.md"
+          done
