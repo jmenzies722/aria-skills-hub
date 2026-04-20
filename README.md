@@ -45,7 +45,7 @@ The flagship skill. A full interactive OS for building and running a homelab —
 
 ```bash
 mkdir -p ~/.claude/skills/HOMELAB && \
-curl -fsSL https://raw.githubusercontent.com/joshmenzies/aria-skills-hub/main/skills/HOMELAB/skill.md \
+curl -fsSL https://raw.githubusercontent.com/jmenzies722/aria-skills-hub/main/skills/HOMELAB/skill.md \
   -o ~/.claude/skills/HOMELAB/skill.md
 ```
 
@@ -54,7 +54,7 @@ Restart Claude Code. The skill auto-registers.
 ### Option 2 — Clone the repo
 
 ```bash
-git clone https://github.com/joshmenzies/aria-skills-hub.git ~/aria-skills-hub
+git clone https://github.com/jmenzies722/aria-skills-hub.git ~/aria-skills-hub
 mkdir -p ~/.claude/skills/HOMELAB
 cp ~/aria-skills-hub/skills/HOMELAB/skill.md ~/.claude/skills/HOMELAB/skill.md
 ```
@@ -169,7 +169,7 @@ MIT — use it, fork it, build on it.
 
 **Josh Menzies** — Platform Engineer, AWS certified, building AI infrastructure at [Nectar](https://gonectar.com).
 
-- GitHub: [@joshmenzies](https://github.com/joshmenzies)
+- GitHub: [@jmenzies722](https://github.com/jmenzies722)
 - Built with: Claude Code · Anthropic SDK · AWS · Terraform
 
 ---

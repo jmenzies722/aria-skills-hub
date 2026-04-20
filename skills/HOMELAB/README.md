@@ -6,7 +6,7 @@ A guided, interactive OS for designing, building, and operating a self-hosted in
 
 ```bash
 mkdir -p ~/.claude/skills/HOMELAB && \
-curl -fsSL https://raw.githubusercontent.com/joshmenzies/aria-skills-hub/main/skills/HOMELAB/skill.md \
+curl -fsSL https://raw.githubusercontent.com/jmenzies722/aria-skills-hub/main/skills/HOMELAB/skill.md \
   -o ~/.claude/skills/HOMELAB/skill.md
 ```
 
