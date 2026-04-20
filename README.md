@@ -9,6 +9,20 @@ Custom Claude Code skills for engineers. Each skill turns a natural-language tri
 | Skill | Trigger | What it does |
 |-------|---------|-------------|
 | [HOMELAB](./skills/HOMELAB/) | `/homelab` | Design, deploy, and operate a self-hosted infrastructure lab |
+| [SYS](./skills/SYS/) | `/sys` | Machine health pipeline — scan, optimize, monitor, and harden your Mac |
+
+---
+
+## Install All Skills
+
+```bash
+# HOMELAB + SYS in one shot
+for skill in HOMELAB SYS; do
+  mkdir -p ~/.claude/skills/$skill
+  curl -fsSL https://raw.githubusercontent.com/jmenzies722/aria-skills-hub/main/skills/$skill/skill.md \
+    -o ~/.claude/skills/$skill/skill.md
+done
+```
 
 ---
 
@@ -77,6 +91,20 @@ Edit `~/.claude/skills/HOMELAB/skill.md` directly:
 | Notion database ID | Replace `bfd3a8a3-...` with your own |
 | Hardware tiers | Add your hardware to the budget table |
 | Services catalog | Add services relevant to your stack |
+
+---
+
+## SYS
+
+Machine health pipeline. One trigger gives you a full audit, optimization run, and optional weekly automated scan.
+
+| Route | What happens |
+|-------|-------------|
+| `Scan` | CPU, RAM, disk, swap, caches — scored 1–10, top processes listed |
+| `Optimize` | Kill hogs, purge caches (brew/npm/pip), before/after delta |
+| `Monitor` | Live metrics loop, refreshes every 30s |
+| `Report` | Findings → Obsidian + Notion |
+| `Harden` | Weekly launchd scan → Telegram notification |
 
 ---
 
